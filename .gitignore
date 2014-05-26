@@ -1,0 +1,4 @@
+# Default output
+rejskol.csv
+# Python cache
+__pycache__/**

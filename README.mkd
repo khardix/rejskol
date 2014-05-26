@@ -1,0 +1,35 @@
+# [CZ] rejskol.py - Data z rejstříku škol MŠMT
+
+Program rejskol.py slouží pro získávaní dat z [rejstříku škol MŠMT
+ČR](http://rejskol.msmt.cz).
+
+## Použití:
+
+    python3 rejskol.py --area KOD --category KOD --output soubor.csv
+
+V této podobě program vypíše do souboru `soubor.csv` všechny školy v zadané oblasti (*area*)
+a kategorii (*category*). Není-li zadán výstupní soubor, použije se soubor `rejskol.csv`
+v současné složce.
+
+Přepínač `--area` akceptuje hodnotu oblasti (např. `CZ0623` pro okres Brno - venkov), 
+nebo speciální hodnotu `all`, která zjistí data postupně ze všech oblasti v rejstříku.
+Tato hodnota jako jediná obchází omezení maxima 400 položek v jednom seznamu, které
+je nastaveno samotným rejstříkem. Při výběru příliš velké kategorie nebo oblasti se
+toto omezeni ale pravděpodobně již objeví. Doporučuji proto nevybírat kraje a
+postupovat postupně po okresech.
+
+Přepínač `--category` akceptuje písmeno/písmena kategorie školy (například `A` pro mateřské
+školky). Opět platí omezeni maximálně 400 záznamů v jedné odpovědi.
+
+## Další použití:
+
+    python3 rejskol.py {araes,categories}
+
+Při použití klíčových slov `areas` nebo `categories` program vypíše seznam akceptovatelných
+kódů pro danou oblast nebo kategorii i s jejich významem.
+
+# Credits
+
+**Autor**: Jan Stanek - <khardix@gmail.com>
+
+Licensed under [GNU AGPL v3](http://www.gnu.org/licenses/agpl-3.0.html).
